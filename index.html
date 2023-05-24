@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>IPL</title>
+</head>
+
+<body>
+    <div class="matches-schedule" style="font-size: 1.25vw;">
+        <table class="matches-table"></table>
+    </div>
+
+    <div class="table-divs" style="width: 25%;">
+        <div class="groupA">
+            <table class="group-A-table" style="width: 100%;">
+                <tr class="">
+                    <th class="bg-orange">Group A</th>
+                </tr>
+            </table>
+        </div>
+
+        <div class="groupB">
+            <table class="group-B-table" style="width: 100%;">
+                <tr class="">
+                    <th class="bg-orange">Group B</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="matches-result table-divs" style="width: 72%;">
+        <em style="color: #c0392b;">
+            The teams are divided into two groups (A and B) of five teams.
+            Each team will play seven home and seven away games.
+            A team will play each team in other group twice (home and away), four of the teams in its group once.
+        </em>
+        <table class="points-table" style="width: 80%; margin: 5px auto 0;">
+            <tr class="bg-orange" style="width: 100%;"">
+                <th style=" width: 35%;">Team</th>
+                <th style="width: 20%;">Matches Played</th>
+                <th style="width: 15%;">Won</th>
+                <th style="width: 15%;">Lost</th>
+                <th style="width: 15%;">Points</th>
+            </tr>
+        </table>
+    </div>
+
+    <script src="jquery.min.js"></script>
+    <script src="objects.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
