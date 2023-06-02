@@ -1,84 +1,13 @@
 body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    margin: 2px 2px 0 2px;
-    background-color: #f7f1e3;
+    background-color: #dfe6e9;
 }
 
-table {
-    border-spacing: 0;
-    text-align: center;
+table * {
+    border: 1px solid grey !important;
+    border-collapse: collapse;
 }
 
-.matches-table tr {
-    display: inline-block;
-    width: 20%;
-}
-
-.table-divs {
-    display: inline-block;
-    text-align: center;
-    vertical-align: middle;
-}
-
-.winner-team {
-    color: green;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-.points-table,
-.points-table tr,
-.points-table th,
-.points-table td,
-.group-A-table,
-.group-A-table tr,
-.group-A-table th,
-.group-A-table td,
-.group-B-table,
-.group-B-table tr,
-.group-B-table th,
-.group-B-table td {
-    border: 1px solid grey;
-}
-
-.bold {
-    font-weight: bold;
-}
-
-.blue {
-    color: blue;
-}
-
-.red {
-    color: red;
-}
-
-.dark-green {
-    color: #218c74;
-}
-
-.bg-cyan {
-    background-color: cyan;
-}
-
-.bg-orange {
-    background-color: orange;
-}
-
-.bg-pink {
-    background-color: pink;
-}
-
-.group-A-table tr,
-.group-A-table td,
-.group-B-table tr,
-.group-B-table td {
-    background-color: #ffda79;
-}
-
-.groupA {
-    margin: 10px 25px 15px 25px;
-}
-
-.groupB {
-    margin: 15px 25px 0 25px;
+img {
+    border: 0 !important;
 }

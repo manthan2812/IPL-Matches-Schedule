@@ -4,52 +4,102 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="external/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
     <title>IPL</title>
 </head>
 
 <body>
-    <div class="matches-schedule" style="font-size: 1.25vw;">
-        <table class="matches-table"></table>
-    </div>
 
-    <div class="table-divs" style="width: 25%;">
-        <div class="groupA">
-            <table class="group-A-table" style="width: 100%;">
-                <tr class="">
-                    <th class="bg-orange">Group A</th>
-                </tr>
-            </table>
+    <div class="container-fluid py-2">
+        <div class="row">
+            <div class="display-4 col-12 mb-2 text-center" style="color: #2c3e50;">
+                IPL - Indian Premier League
+            </div>
         </div>
 
-        <div class="groupB">
-            <table class="group-B-table" style="width: 100%;">
-                <tr class="">
-                    <th class="bg-orange">Group B</th>
-                </tr>
-            </table>
+        <div class="row">
+            <div class="col-12 font-italic font-weight-light text-secondary text-center">
+                The teams are divided into two groups (A and B) of five teams.
+                Each team will play seven home and seven away games.
+                A team will play each team in other group twice (home and away), four of the teams in its group once.
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 p-2 px-sm-5 py-sm-2">
+                <table class="table table-sm group-A-table table-striped table-bordered m-0">
+                    <thead class="bg-warning">
+                        <tr>
+                            <th scope="col" class="text-center text-uppercase">Group A</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-warning">
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6 p-2 px-sm-5 py-sm-2">
+                <table class="table table-sm group-B-table table-striped table-bordered m-0">
+                    <thead class="bg-warning">
+                        <tr>
+                            <th scope="col" class="text-center text-uppercase">Group B</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-warning">
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
-    <div class="matches-result table-divs" style="width: 72%;">
-        <em style="color: #c0392b;">
-            The teams are divided into two groups (A and B) of five teams.
-            Each team will play seven home and seven away games.
-            A team will play each team in other group twice (home and away), four of the teams in its group once.
-        </em>
-        <table class="points-table" style="width: 80%; margin: 5px auto 0;">
-            <tr class="bg-orange" style="width: 100%;"">
-                <th style=" width: 35%;">Team</th>
-                <th style="width: 20%;">Matches Played</th>
-                <th style="width: 15%;">Won</th>
-                <th style="width: 15%;">Lost</th>
-                <th style="width: 15%;">Points</th>
-            </tr>
-        </table>
+    <div class="container-fluid py-3">
+        <div class="row">
+            <div class="h2 col-12 text-uppercase text-danger text-center">
+                &ndash; &ndash; &ndash; Matches &ndash; &ndash; &ndash;
+            </div>
+        </div>
+
+        <div class="row matches-table">
+        </div>
     </div>
 
-    <script src="jquery.min.js"></script>
+    <div class="container-fluid py-2">
+        <div class="row">
+            <div class="h2 col-12 text-uppercase text-danger text-center">
+                &ndash; &ndash; &ndash; Points Table &ndash; &ndash; &ndash;
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 table-responsive px-2">
+                <table class="table points-table table-sm table-bordered table-hover m-0">
+                    <thead style="background-color: #6F1E51; color: #FDA7DF;">
+                        <tr>
+                            <th scope="col" class="text-center text-uppercase">#</th>
+                            <th scope="col" class="text-center text-uppercase">Team</th>
+                            <!-- <th scope="col" class="text-center text-uppercase">Toss Won</th> -->
+                            <!-- <th scope="col" class="text-center text-uppercase">Batting First</th> -->
+                            <!-- <th scope="col" class="text-center text-uppercase">Bowling First</th> -->
+                            <th scope="col" class="text-center text-uppercase">Matches</th>
+                            <th scope="col" class="text-center text-uppercase">Won</th>
+                            <th scope="col" class="text-center text-uppercase">Lost</th>
+                            <th scope="col" class="text-center text-uppercase">For</th>
+                            <th scope="col" class="text-center text-uppercase">Against</th>
+                            <th scope="col" class="text-center text-uppercase">NRR</th>
+                            <th scope="col" class="text-center text-uppercase">Points</th>
+                        </tr>
+                    </thead>
+                    <tbody class="">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="external/jquery-3.3.1.slim.min.js"></script>
+    <script src="external/popper.min.js"></script>
+    <script src="external/bootstrap.min.js"></script>
     <script src="objects.js"></script>
     <script src="script.js"></script>
 </body>
