@@ -3,11 +3,6 @@ body {
     background-color: #dfe6e9;
 }
 
-table * {
-    border: 1px solid grey !important;
-    border-collapse: collapse;
-}
-
 img {
     border: 0 !important;
 }

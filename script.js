@@ -158,8 +158,9 @@ function displayPointsTable() {
     for (let index = 0; index < teamsSortedOrder.length; index++) {
         var bgColor = (index < 4) ? "table-primary" : "table-danger";
         $(".points-table tbody").append("<tr class='" + bgColor + "'>" +
-            "<th scope='col' >" + (index + 1) + "</th>" +
-            "<td>" + teams[teamsSortedOrder[index]] + " (" + teamsSortedOrder[index] + ")" + "</td>" +
+            "<th scope='col' class='text-center'>" + (index + 1) + "</th>" +
+            "<td><img src='images/teams-logo/" + teamsSortedOrder[index] + ".png' alt='" + teamsSortedOrder[index] + "' height='24'></img> " +
+            teams[teamsSortedOrder[index]] + " (" + teamsSortedOrder[index] + ")" + "</td>" +
             // "<td>" + pointsTable[teamsSortedOrder[index]]["tossWon"] + "</td>" +
             // "<td>" + pointsTable[teamsSortedOrder[index]]["battingFirst"] + "</td>" +
             // "<td>" + pointsTable[teamsSortedOrder[index]]["bowlingFirst"] + "</td>" +
@@ -180,13 +181,15 @@ function displayPointsTable() {
 function displayGroups() {
     for (const groupATeam in groupA) {
         $(".group-A-table tbody").append("<tr>" +
-            "<td>" + teams[groupATeam] + " (" + groupATeam + ")" + "</td>" +
+            "<td><img src='images/teams-logo/" + groupATeam + ".png' alt='" + groupATeam + "' height='24'></img> " +
+            teams[groupATeam] + " (" + groupATeam + ")" + "</td>" +
             "</tr>"
         );
     }
     for (const groupBTeam in groupB) {
         $(".group-B-table tbody").append("<tr>" +
-            "<td>" + teams[groupBTeam] + " (" + groupBTeam + ")" + "</td>" +
+            "<td><img src='images/teams-logo/" + groupBTeam + ".png' alt='" + groupBTeam + "' height='24'></img> " +
+            teams[groupBTeam] + " (" + groupBTeam + ")" + "</td>" +
             "</tr>"
         );
     }
@@ -257,20 +260,22 @@ function matchResult(tossWinner, firstBattingTeam, secondBattingTeam) {
     }
 
     matchDivAdd(totalMatchesPlayed + 1,
+        "<img src='images/teams-logo/" + firstBattingTeam + ".png' alt='" + firstBattingTeam + "' height='24'></img> " +
         firstBattingTeam + " " + firstBattingRunScored + "/" + firstBattingWicketLost + " (" + Math.floor(firstBattingBallPlayed / 6) + "." + (firstBattingBallPlayed % 6) + ")",
+        "<img src='images/teams-logo/" + secondBattingTeam + ".png' alt='" + secondBattingTeam + "' height='24'></img> " +
         secondBattingTeam + " " + secondBattingRunScored + "/" + secondBattingWicketLost + " (" + Math.floor(secondBattingBallPlayed / 6) + "." + (secondBattingBallPlayed % 6) + ")",
         winStatement);
 }
 
 function matchDivAdd(matchNo, firstTeam, secondTeam, winStatement) {
-    $(".matches-table").append('<div class="col-md-3 m-0 p-1">' +
+    $(".matches-schedule").append('<div class="col-md-4 m-0 p-1">' +
         '<table class="table table-sm table-bordered m-0 p-0">' +
         '<thead style="background-color:#130f40; color:#dff9fb;">' +
         '<tr><th colspan="3" class="text-center">Match ' + matchNo + '</th></tr>' +
         '</thead>' +
         '<tbody style="background-color:#303952; color:#fd79a8;"><tr>' +
         '<td class="text-center">' + firstTeam + '</td>' +
-        '<td class="text-center" style="background-color:#ffb142;"><img src="images/vs-image.png" alt="vs" height="24"></img></td>' +
+        '<td class="text-center p-0 align-middle" style="background-color:#ffb142;"><img src="images/versus.png" alt="vs" height="30"></img></td>' +
         '<td class="text-center">' + secondTeam + '</td>' +
         '</tr></tbody>' +
         '<tfoot style="background-color:#006266; color:#81ecec;">' +
