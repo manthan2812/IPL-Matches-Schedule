@@ -161,9 +161,6 @@ function displayPointsTable() {
             "<th scope='col' class='text-center'>" + (index + 1) + "</th>" +
             "<td><img src='images/teams-logo/" + teamsSortedOrder[index] + ".png' alt='" + teamsSortedOrder[index] + "' height='24'></img> " +
             teams[teamsSortedOrder[index]] + " (" + teamsSortedOrder[index] + ")" + "</td>" +
-            // "<td>" + pointsTable[teamsSortedOrder[index]]["tossWon"] + "</td>" +
-            // "<td>" + pointsTable[teamsSortedOrder[index]]["battingFirst"] + "</td>" +
-            // "<td>" + pointsTable[teamsSortedOrder[index]]["bowlingFirst"] + "</td>" +
             "<td>" + pointsTable[teamsSortedOrder[index]]["matches"] + "</td>" +
             "<td>" + pointsTable[teamsSortedOrder[index]]["won"] + "</td>" +
             "<td>" + pointsTable[teamsSortedOrder[index]]["lost"] + "</td>" +
