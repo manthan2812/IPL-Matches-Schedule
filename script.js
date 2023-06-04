@@ -48,7 +48,7 @@ $(document).ready(function () {
         var decisionOfBatOrBowl = chooseBatOrBowl();
         var firstBattingTeam, secondBattingTeam;
 
-        if (decisionOfBatOrBowl === 'bat') {
+        if (decisionOfBatOrBowl === "bat") {
             firstBattingTeam = tossWinner;
             secondBattingTeam = (tossWinner === homeTeam) ? awayTeam : homeTeam;
         } else {
@@ -211,10 +211,10 @@ function matchResult(tossWinner, firstBattingTeam, secondBattingTeam) {
     var winnerTeam = decideWinnerOfMatch(firstBattingTeam, secondBattingTeam, firstBattingRunScored);
     var loserTeam = (winnerTeam === firstBattingTeam) ? secondBattingTeam : firstBattingTeam;
 
-    var secondBattingRunScored = (secondBattingTeam === winnerTeam) ? secondBattingTeamRunScored(firstBattingRunScored, 'won') :
-        secondBattingTeamRunScored(firstBattingRunScored, 'lost');
-    var secondBattingBallPlayed = (secondBattingTeam === winnerTeam) ? secondBattingTeamBallPlayed(firstBattingRunScored, 'won') :
-        secondBattingTeamBallPlayed(firstBattingRunScored, 'lost');
+    var secondBattingRunScored = (secondBattingTeam === winnerTeam) ? secondBattingTeamRunScored(firstBattingRunScored, "won") :
+        secondBattingTeamRunScored(firstBattingRunScored, "lost");
+    var secondBattingBallPlayed = (secondBattingTeam === winnerTeam) ? secondBattingTeamBallPlayed(firstBattingRunScored, "won") :
+        secondBattingTeamBallPlayed(firstBattingRunScored, "lost");
     var secondBattingWicketLost = secondBattingTeamWicketLost(firstBattingRunScored, secondBattingRunScored, secondBattingBallPlayed);
 
     pointsTable[winnerTeam]["matches"]++;
@@ -245,18 +245,10 @@ function matchResult(tossWinner, firstBattingTeam, secondBattingTeam) {
     var winStatement;
     if (firstBattingRunScored > secondBattingRunScored) {
         var wonByRun = firstBattingRunScored - secondBattingRunScored;
-        if (wonByRun === 1) {
-            winStatement = (firstBattingTeam + " won by " + wonByRun + " run");
-        } else {
-            winStatement = (firstBattingTeam + " won by " + wonByRun + " runs");
-        }
+        winStatement = (teams[firstBattingTeam] + " won by " + wonByRun + ((wonByRun === 1) ? " run" : " runs"));
     } else {
         var wonByWicket = 10 - secondBattingWicketLost;
-        if (wonByWicket === 1) {
-            winStatement = (secondBattingTeam + " won by " + wonByWicket + " wicket");
-        } else {
-            winStatement = (secondBattingTeam + " won by " + wonByWicket + " wickets");
-        }
+        winStatement = (teams[secondBattingTeam] + " won by " + wonByWicket + ((wonByWicket === 1) ? " wicket" : " wickets"));
     }
 
     matchDivAdd(totalMatchesPlayed + 1,
@@ -268,21 +260,21 @@ function matchResult(tossWinner, firstBattingTeam, secondBattingTeam) {
 }
 
 function matchDivAdd(matchNo, firstTeam, secondTeam, winStatement) {
-    $(".matches-schedule").append('<div class="col-md-4 m-0 p-1">' +
-        '<table class="table table-sm table-bordered m-0 p-0">' +
-        '<thead style="background-color:#130f40; color:#dff9fb;">' +
-        '<tr><th colspan="3" class="text-center">Match ' + matchNo + '</th></tr>' +
-        '</thead>' +
-        '<tbody style="background-color:#303952; color:#fd79a8;"><tr>' +
-        '<td class="text-center">' + firstTeam + '</td>' +
-        '<td class="text-center p-0 align-middle" style="background-color:#ffb142;"><img src="images/versus.png" alt="vs" height="30"></img></td>' +
-        '<td class="text-center">' + secondTeam + '</td>' +
-        '</tr></tbody>' +
-        '<tfoot style="background-color:#006266; color:#81ecec;">' +
-        '<tr><td colspan="3" class="text-center">' + winStatement + '</td></tr>' +
-        '</tfoot>' +
-        '</table>' +
-        '</div>');
+    $(".matches-schedule").append("<div class='col-md-6 m-0 p-1'>" +
+        "<table class='table table-sm table-bordered m-0 p-0'>" +
+        "<thead style='background-color:#130f40; color:#dff9fb;'>" +
+        "<tr><th colspan='3' class='text-center'>Match " + matchNo + "</th></tr>" +
+        "</thead>" +
+        "<tbody style='background-color:#303952; color:#fd79a8;'><tr>" +
+        "<td class='text-center'>" + firstTeam + "</td>" +
+        "<td class='text-center p-0 align-middle' style='background-color:#ffb142;'><img src='images/versus.png' alt='vs' height='30'></img></td>" +
+        "<td class='text-center'>" + secondTeam + "</td>" +
+        "</tr></tbody>" +
+        "<tfoot style='background-color:#006266; color:#81ecec;'>" +
+        "<tr><td colspan='3' class='text-center'>" + winStatement + "</td></tr>" +
+        "</tfoot>" +
+        "</table>" +
+        "</div>");
 }
 
 function firstBattingTeamRunScored() {
@@ -342,7 +334,7 @@ function firstBattingTeamWicketLost(firstBattingBallPlayed) {
 }
 
 function secondBattingTeamRunScored(firstBattingRunScored, wonOrLost) {
-    if (wonOrLost === 'won') {
+    if (wonOrLost === "won") {
         var numsToGenerate = [...Array((firstBattingRunScored + 7)).keys()].filter(item => item > firstBattingRunScored);
         var discreteProbabilities = [32, 16, 8, 4, 2, 1];
         var totalPossibilities = [];
@@ -412,7 +404,7 @@ function secondBattingTeamBallPlayed(firstBattingRunScored, wonOrLost) {
         length: 120
     }, (_, i) => i + 1);
 
-    if (wonOrLost === 'won') {
+    if (wonOrLost === "won") {
         var totalPossibilities = [],
             times;
         for (const key in numsToGenerate) {
@@ -596,10 +588,10 @@ function decideWinnerOfMatch(firstBattingTeam, secondBattingTeam, firstBattingRu
 function chooseBatOrBowl() {
     var totalPossibilities = [];
     for (let index = 0; index < 4; index++) {
-        totalPossibilities.push('bat');
+        totalPossibilities.push("bat");
     }
     for (let index = 0; index < 6; index++) {
-        totalPossibilities.push('bowl');
+        totalPossibilities.push("bowl");
     }
     return totalPossibilities[getRandomNumber(totalPossibilities.length)];
 }
