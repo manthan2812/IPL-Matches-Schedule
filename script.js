@@ -204,7 +204,7 @@ function displayPointsTable() {
         );
     }
 
-    displayPlayoffs(teamsSortedOrder[0], teamsSortedOrder[1], teamsSortedOrder[2], teamsSortedOrder[4]);
+    displayPlayoffs(teamsSortedOrder[0], teamsSortedOrder[1], teamsSortedOrder[2], teamsSortedOrder[3]);
 }
 
 function displayPlayoffs(firstTeam, secondTeam, thirdTeam, fourthTeam) {
