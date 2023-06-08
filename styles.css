@@ -6,3 +6,35 @@ body {
 img {
     border: 0 !important;
 }
+
+.hide {
+    display: none !important;
+}
+
+.playoff-table .border-top {
+    border-top: 3px solid #ffb142 !important;
+}
+
+.playoff-table .border-bottom {
+    border-bottom: 3px solid #ffb142 !important;
+}
+
+.playoff-table .border-right {
+    border-right: 3px solid #ffb142 !important;
+}
+
+.card {
+    border: 0;
+}
+
+.card-header {
+    background-color: #191975;
+}
+
+.card-body {
+    background: radial-gradient(circle, #ffffff 0%, #bfbfd9 100%);
+}
+
+.playoff-card-body {
+    background: linear-gradient(90deg, #000017 0%, #000045 50%, #000010 100%);
+}

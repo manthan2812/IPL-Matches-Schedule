@@ -13,7 +13,7 @@
 <body>
 
     <div class="container-fluid p-0">
-        <div class="row m-0" style="background-color: #182C61;">
+        <div class="row m-0" style="background-color: #000066;">
             <div class="col-12 py-2 text-center align-middle">
                 <img src="images/ipl-logo.png" alt="Indian Premier League" height="60">
             </div>
@@ -21,17 +21,18 @@
     </div>
 
     <div id="accordion">
+
         <div class="card">
-            <div class="card-header" id="headingOne">
+            <div class="card-header" id="tournamentHeading">
                 <h5 class="m-0 text-center">
-                    <button class="btn btn-link text-decoration-none text-uppercase text-danger" data-toggle="collapse"
-                        data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <button class="btn btn-link text-white text-decoration-none text-uppercase" data-toggle="collapse"
+                        data-target="#collapseTournament" aria-expanded="true" aria-controls="collapseTournament">
                         Tournament Structure
                     </button>
                 </h5>
             </div>
 
-            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne">
+            <div id="collapseTournament" class="collapse show" aria-labelledby="tournamentHeading">
                 <div class="card-body p-0">
                     <div class="container-fluid p-1 p-sm-3">
                         <div class="row m-0">
@@ -44,28 +45,31 @@
                         </div>
 
                         <div class="row m-0">
-                            <div class="col-md-6 p-2 px-sm-5 py-sm-2">
-                                <table class="table table-sm group-A-table table-striped table-bordered m-0">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-4 p-2">
+                                <table class="table table-sm group-A-table hide table-striped table-bordered m-0">
                                     <thead class="bg-warning">
                                         <tr>
-                                            <th scope="col" class="text-center text-uppercase">Group A</th>
+                                            <th scope="col" class="text-center">GROUP A</th>
                                         </tr>
                                     </thead>
                                     <tbody class="table-warning">
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="col-md-6 p-2 px-sm-5 py-sm-2">
-                                <table class="table table-sm group-B-table table-striped table-bordered m-0">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-4 p-2">
+                                <table class="table table-sm group-B-table hide table-striped table-bordered m-0">
                                     <thead class="bg-warning">
                                         <tr>
-                                            <th scope="col" class="text-center text-uppercase">Group B</th>
+                                            <th scope="col" class="text-center">GROUP B</th>
                                         </tr>
                                     </thead>
                                     <tbody class="table-warning">
                                     </tbody>
                                 </table>
                             </div>
+                            <div class="col-md-1"></div>
                         </div>
                     </div>
                 </div>
@@ -73,15 +77,15 @@
         </div>
 
         <div class="card">
-            <div class="card-header" id="headingTwo">
+            <div class="card-header" id="matchesHeading">
                 <h5 class="m-0 text-center">
-                    <button class="btn btn-link text-decoration-none text-uppercase text-danger" data-toggle="collapse"
-                        data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                    <button class="btn btn-link text-white text-decoration-none text-uppercase" data-toggle="collapse"
+                        data-target="#collapseMatches" aria-expanded="true" aria-controls="collapseMatches">
                         Matches
                     </button>
                 </h5>
             </div>
-            <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo">
+            <div id="collapseMatches" class="collapse show" aria-labelledby="matchesHeading">
                 <div class="card-body p-0">
                     <div class="container-fluid p-1 p-sm-3">
                         <div class="row m-0 matches-schedule">
@@ -92,20 +96,20 @@
         </div>
 
         <div class="card">
-            <div class="card-header" id="headingThree">
+            <div class="card-header" id="pointsTableHeading">
                 <h5 class="m-0 text-center">
-                    <button class="btn btn-link text-decoration-none text-uppercase text-danger" data-toggle="collapse"
-                        data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                    <button class="btn btn-link text-white text-decoration-none text-uppercase" data-toggle="collapse"
+                        data-target="#collapsePointsTable" aria-expanded="true" aria-controls="collapsePointsTable">
                         Points Table
                     </button>
                 </h5>
             </div>
-            <div id="collapseThree" class="collapse show" aria-labelledby="headingThree">
+            <div id="collapsePointsTable" class="collapse show" aria-labelledby="pointsTableHeading">
                 <div class="card-body p-0">
                     <div class="container-fluid p-1 p-sm-3">
                         <div class="row m-0">
                             <div class="col-12 p-0 table-responsive">
-                                <table class="table points-table table-sm table-bordered table-hover">
+                                <table class="table points-table table-sm table-bordered table-hover m-0">
                                     <thead style="background-color: #6F1E51; color: #FDA7DF;">
                                         <tr>
                                             <th scope="col" class="text-center text-uppercase">#</th>
@@ -128,8 +132,131 @@
                 </div>
             </div>
         </div>
+
+        <div class="card">
+            <div class="card-header" id="playoffHeading">
+                <h5 class="m-0 text-center">
+                    <button class="btn btn-link text-white text-decoration-none text-uppercase" data-toggle="collapse"
+                        data-target="#collapsePlayoff" aria-expanded="true" aria-controls="collapsePlayoff">
+                        Playoffs
+                    </button>
+                </h5>
+            </div>
+            <div id="collapsePlayoff" class="collapse show" aria-labelledby="playoffHeading">
+                <div class="card-body playoff-card-body p-0">
+                    <div class="container-fluid p-0">
+                        <div class="row m-0">
+                            <div class="col-12 p-1 p-sm-3 table-responsive">
+                                <table class="table text-white playoff-table hide table-sm table-borderless m-0">
+                                    <tbody class="">
+                                        <tr>
+                                            <td colspan="2" class="text-center border border-white firstTeam"></td>
+                                            <td colspan="6" class="text-center"></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" class="text-center border border-white">QUALIFIER 1</td>
+                                            <td class="text-center border-top"></td>
+                                            <td class="text-center border-top"></td>
+                                            <td class="text-center border-top"></td>
+                                            <td class="text-center border-top"></td>
+                                            <td class="text-center border-top border-right"></td>
+                                            <td class="text-center"></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" class="text-center border border-white  secondTeam"></td>
+                                            <td colspan="5" class="text-center border-right"></td>
+                                            <td class="text-center"></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" class="text-center border border-white qualifier1Result">
+                                            </td>
+                                            <td class="text-center border-top border-right"></td>
+                                            <td colspan="3" class="text-center"></td>
+                                            <td colspan="2" class="text-center border border-white finalist1"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center"></td>
+                                            <td class="text-center"></td>
+                                            <td class="text-center"></td>
+                                            <td class="text-center border-top border-right"></td>
+                                            <td class="text-center"></td>
+                                            <td class="text-center"></td>
+                                            <td colspan="2" class="text-center border border-white">THE FINAL</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="4" class="text-center border-right"></td>
+                                            <td colspan="2" class="text-center"></td>
+                                            <td colspan="2" class="text-center border border-white finalist2"></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3" class="text-center"></td>
+                                            <td colspan="2" class="text-center border border-white q2Team1"></td>
+                                            <td class="text-center"></td>
+                                            <td colspan="2" class="text-center border border-white winnerFinal"></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3" class="text-center"></td>
+                                            <td colspan="2" class="text-center border border-white">QUALIFIER 2</td>
+                                            <td colspan="2" class="text-center border-right"></td>
+                                            <td class="text-center"></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3" class="text-center"></td>
+                                            <td colspan="2" class="text-center border border-white q2Team2"></td>
+                                            <td colspan="2" class="text-center border-bottom border-right"></td>
+                                            <td class="text-center"></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3" class="text-center"></td>
+                                            <td colspan="2" class="text-center border border-white qualifier2Result">
+                                            </td>
+                                            <td class="text-center"></td>
+                                            <td class="text-center"></td>
+                                            <td class="text-center"></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" class="text-center border border-white thirdTeam"></td>
+                                            <td colspan="2" class="text-center border-right"></td>
+                                            <td colspan="4" class="text-center"></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" class="text-center border border-white">ELIMINATOR</td>
+                                            <td colspan="2" class="text-center border-bottom border-right"></td>
+                                            <td colspan="4" class="text-center"></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" class="text-center border border-white fourthTeam"></td>
+                                            <td colspan="6" class="text-center"></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" class="text-center border border-white eliminatorResult">
+                                            </td>
+                                            <td colspan="6" class="text-center"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
+    <div class="container-fluid text-white champion-container hide p-0">
+        <div class="row align-items-center m-0 p-2" style="background-color: #000066;">
+            <div class="col-2 col-sm-3 col-lg-4 text-right champion-team-logo">
+            </div>
+            <div class="col-8 col-sm-6 col-lg-4 text-center">
+                <div class="champion-text"></div>
+                <div>INDIAN PREMIER LEAGUE CHAMPIONS</div>
+            </div>
+            <div class="col-2 col-sm-3 col-lg-4 text-left">
+                <img src="images/teams-trophy.svg" alt="Indian Premier League" height="48">
+            </div>
+        </div>
+    </div>
 
     <script src="external/jquery-3.3.1.slim.min.js"></script>
     <script src="external/popper.min.js"></script>
