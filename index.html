@@ -23,7 +23,7 @@
     <div id="accordion">
 
         <div class="card">
-            <div class="card-header" id="tournamentHeading">
+            <div class="card-header rounded-0" id="tournamentHeading">
                 <h5 class="m-0 text-center">
                     <button class="btn btn-link text-white text-decoration-none text-uppercase" data-toggle="collapse"
                         data-target="#collapseTournament" aria-expanded="true" aria-controls="collapseTournament">
@@ -77,7 +77,7 @@
         </div>
 
         <div class="card">
-            <div class="card-header" id="matchesHeading">
+            <div class="card-header rounded-0" id="matchesHeading">
                 <h5 class="m-0 text-center">
                     <button class="btn btn-link text-white text-decoration-none text-uppercase" data-toggle="collapse"
                         data-target="#collapseMatches" aria-expanded="true" aria-controls="collapseMatches">
@@ -88,7 +88,7 @@
             <div id="collapseMatches" class="collapse show" aria-labelledby="matchesHeading">
                 <div class="card-body p-0">
                     <div class="container-fluid p-1 p-sm-3">
-                        <div class="row m-0 matches-schedule">
+                        <div class="row m-0 matches-schedule hide">
                         </div>
                     </div>
                 </div>
@@ -96,7 +96,7 @@
         </div>
 
         <div class="card">
-            <div class="card-header" id="pointsTableHeading">
+            <div class="card-header rounded-0" id="pointsTableHeading">
                 <h5 class="m-0 text-center">
                     <button class="btn btn-link text-white text-decoration-none text-uppercase" data-toggle="collapse"
                         data-target="#collapsePointsTable" aria-expanded="true" aria-controls="collapsePointsTable">
@@ -109,7 +109,7 @@
                     <div class="container-fluid p-1 p-sm-3">
                         <div class="row m-0">
                             <div class="col-12 p-0 table-responsive">
-                                <table class="table points-table table-sm table-bordered table-hover m-0">
+                                <table class="table points-table hide table-sm table-bordered table-hover m-0">
                                     <thead style="background-color: #6F1E51; color: #FDA7DF;">
                                         <tr>
                                             <th scope="col" class="text-center text-uppercase">#</th>
@@ -134,7 +134,7 @@
         </div>
 
         <div class="card">
-            <div class="card-header" id="playoffHeading">
+            <div class="card-header rounded-0" id="playoffHeading">
                 <h5 class="m-0 text-center">
                     <button class="btn btn-link text-white text-decoration-none text-uppercase" data-toggle="collapse"
                         data-target="#collapsePlayoff" aria-expanded="true" aria-controls="collapsePlayoff">
@@ -147,14 +147,15 @@
                     <div class="container-fluid p-0">
                         <div class="row m-0">
                             <div class="col-12 p-1 p-sm-3 table-responsive">
-                                <table class="table text-white playoff-table hide table-sm table-borderless m-0">
+                                <table class="table playoff-table hide table-sm table-borderless m-0"
+                                    style="color: #F8EFBA;">
                                     <tbody class="">
                                         <tr>
-                                            <td colspan="2" class="text-center border border-white firstTeam"></td>
+                                            <td colspan="2" class="text-center rounded-top firstTeam"></td>
                                             <td colspan="6" class="text-center"></td>
                                         </tr>
                                         <tr>
-                                            <td colspan="2" class="text-center border border-white">QUALIFIER 1</td>
+                                            <td colspan="2" class="text-center bg-magenta">QUALIFIER 1</td>
                                             <td class="text-center border-top"></td>
                                             <td class="text-center border-top"></td>
                                             <td class="text-center border-top"></td>
@@ -163,16 +164,17 @@
                                             <td class="text-center"></td>
                                         </tr>
                                         <tr>
-                                            <td colspan="2" class="text-center border border-white  secondTeam"></td>
+                                            <td colspan="2" class="text-center secondTeam"></td>
                                             <td colspan="5" class="text-center border-right"></td>
                                             <td class="text-center"></td>
                                         </tr>
                                         <tr>
-                                            <td colspan="2" class="text-center border border-white qualifier1Result">
+                                            <td colspan="2"
+                                                class="text-center rounded-bottom qualifier1Result lime-color bg-magenta">
                                             </td>
                                             <td class="text-center border-top border-right"></td>
                                             <td colspan="3" class="text-center"></td>
-                                            <td colspan="2" class="text-center border border-white finalist1"></td>
+                                            <td colspan="2" class="text-center rounded-top finalist1"></td>
                                         </tr>
                                         <tr>
                                             <td class="text-center"></td>
@@ -181,55 +183,59 @@
                                             <td class="text-center border-top border-right"></td>
                                             <td class="text-center"></td>
                                             <td class="text-center"></td>
-                                            <td colspan="2" class="text-center border border-white">THE FINAL</td>
+                                            <td colspan="2" class="text-center bg-magenta">THE FINAL</td>
                                         </tr>
                                         <tr>
                                             <td colspan="4" class="text-center border-right"></td>
                                             <td colspan="2" class="text-center"></td>
-                                            <td colspan="2" class="text-center border border-white finalist2"></td>
+                                            <td colspan="2" class="text-center finalist2"></td>
                                         </tr>
                                         <tr>
                                             <td colspan="3" class="text-center"></td>
-                                            <td colspan="2" class="text-center border border-white q2Team1"></td>
+                                            <td colspan="2" class="text-center rounded-top q2Team1"></td>
                                             <td class="text-center"></td>
-                                            <td colspan="2" class="text-center border border-white winnerFinal"></td>
+                                            <td colspan="2"
+                                                class="text-center rounded-bottom winnerFinal lime-color bg-magenta">
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td colspan="3" class="text-center"></td>
-                                            <td colspan="2" class="text-center border border-white">QUALIFIER 2</td>
+                                            <td colspan="2" class="text-center bg-magenta">QUALIFIER 2</td>
                                             <td colspan="2" class="text-center border-right"></td>
                                             <td class="text-center"></td>
                                         </tr>
                                         <tr>
                                             <td colspan="3" class="text-center"></td>
-                                            <td colspan="2" class="text-center border border-white q2Team2"></td>
+                                            <td colspan="2" class="text-center q2Team2"></td>
                                             <td colspan="2" class="text-center border-bottom border-right"></td>
                                             <td class="text-center"></td>
                                         </tr>
                                         <tr>
                                             <td colspan="3" class="text-center"></td>
-                                            <td colspan="2" class="text-center border border-white qualifier2Result">
+                                            <td colspan="2"
+                                                class="text-center rounded-bottom qualifier2Result lime-color bg-magenta">
                                             </td>
                                             <td class="text-center"></td>
                                             <td class="text-center"></td>
                                             <td class="text-center"></td>
                                         </tr>
                                         <tr>
-                                            <td colspan="2" class="text-center border border-white thirdTeam"></td>
+                                            <td colspan="2" class="text-center rounded-top thirdTeam"></td>
                                             <td colspan="2" class="text-center border-right"></td>
                                             <td colspan="4" class="text-center"></td>
                                         </tr>
                                         <tr>
-                                            <td colspan="2" class="text-center border border-white">ELIMINATOR</td>
+                                            <td colspan="2" class="text-center bg-magenta">ELIMINATOR</td>
                                             <td colspan="2" class="text-center border-bottom border-right"></td>
                                             <td colspan="4" class="text-center"></td>
                                         </tr>
                                         <tr>
-                                            <td colspan="2" class="text-center border border-white fourthTeam"></td>
+                                            <td colspan="2" class="text-center fourthTeam"></td>
                                             <td colspan="6" class="text-center"></td>
                                         </tr>
                                         <tr>
-                                            <td colspan="2" class="text-center border border-white eliminatorResult">
+                                            <td colspan="2"
+                                                class="text-center rounded-bottom eliminatorResult lime-color bg-magenta">
                                             </td>
                                             <td colspan="6" class="text-center"></td>
                                         </tr>

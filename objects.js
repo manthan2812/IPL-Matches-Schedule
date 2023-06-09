@@ -11,6 +11,19 @@ var teams = {
     PBKS: "Punjab Kings"
 };
 
+var teamsColor = {
+    GT: "darkcyan",
+    MI: "dodgerblue",
+    CSK: "yellow",
+    RCB: "#ff3333",
+    KKR: "darkviolet",
+    RR: "deeppink",
+    DC: "royalblue",
+    SRH: "orange",
+    LSG: "cyan",
+    PBKS: "red"
+};
+
 /*
 The teams are divided into two groups (A and B) of five teams. 
 Each team will play seven home and seven away games. 

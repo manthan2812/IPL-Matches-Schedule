@@ -24,11 +24,11 @@ img {
 }
 
 .card {
-    border: 0;
+    border: 0 !important;
 }
 
 .card-header {
-    background-color: #191975;
+    background-color: #191975 !important;
 }
 
 .card-body {
@@ -37,4 +37,12 @@ img {
 
 .playoff-card-body {
     background: linear-gradient(90deg, #000017 0%, #000045 50%, #000010 100%);
+}
+
+.bg-magenta {
+    background-color: #6D214F;
+}
+
+.lime-color {
+    color: #7bed9f;
 }

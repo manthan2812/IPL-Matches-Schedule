@@ -75,15 +75,15 @@ $(document).ready(function () {
                 (pointsTable[resultObject.secondBattingTeam]["runScoredAgainst"] / (pointsTable[resultObject.secondBattingTeam]["ballPlayedAgainst"] / 6))).toFixed(3);
 
         var winStatementDetail = winStatement(resultObject.firstBattingTeam, resultObject.secondBattingTeam, resultObject.firstBattingRunScored,
-            resultObject.secondBattingRunScored, resultObject.secondBattingWicketLost);
-        var firstBattingTeamDetail = "<img src='images/teams-logo/" + resultObject.firstBattingTeam + ".png' alt='" + resultObject.firstBattingTeam + "' height='24'></img> " +
+            resultObject.secondBattingRunScored, resultObject.secondBattingWicketLost, false);
+        var firstBattingTeamDetail = "<img src='images/teams-logo/" + resultObject.firstBattingTeam + ".png' alt='" + resultObject.firstBattingTeam + "' height='24'> " +
             resultObject.firstBattingTeam + " " + resultObject.firstBattingRunScored + " / " + resultObject.firstBattingWicketLost + " (" +
             Math.floor(resultObject.firstBattingBallPlayed / 6) + "." + (resultObject.firstBattingBallPlayed % 6) + ")" +
-            ((resultObject.firstBattingTeam === resultObject.tossWinner) ? " <img src='images/coin.png' alt='TossWinner' height='16'></img>" : "");
-        var secondBattingTeamDetail = "<img src='images/teams-logo/" + resultObject.secondBattingTeam + ".png' alt='" + resultObject.secondBattingTeam + "' height='24'></img> " +
+            ((resultObject.firstBattingTeam === resultObject.tossWinner) ? " <img src='images/coin.png' alt='TossWinner' height='16'>" : "");
+        var secondBattingTeamDetail = "<img src='images/teams-logo/" + resultObject.secondBattingTeam + ".png' alt='" + resultObject.secondBattingTeam + "' height='24'> " +
             resultObject.secondBattingTeam + " " + resultObject.secondBattingRunScored + " / " + resultObject.secondBattingWicketLost + " (" +
             Math.floor(resultObject.secondBattingBallPlayed / 6) + "." + (resultObject.secondBattingBallPlayed % 6) + ")" +
-            ((resultObject.secondBattingTeam === resultObject.tossWinner) ? " <img src='images/coin.png' alt='TossWinner' height='16'></img>" : "");
+            ((resultObject.secondBattingTeam === resultObject.tossWinner) ? " <img src='images/coin.png' alt='TossWinner' height='16'>" : "");
 
         matchDivAdd(totalMatchesPlayed + 1, firstBattingTeamDetail, secondBattingTeamDetail, winStatementDetail,
             resultObject.winnerTeam, resultObject.firstBattingTeam, resultObject.secondBattingTeam);
@@ -91,6 +91,7 @@ $(document).ready(function () {
         totalMatchesPlayed++;
     }
 
+    $(".matches-schedule").removeClass("hide");
     displayPointsTable();
 });
 
@@ -189,8 +190,9 @@ function displayPointsTable() {
         var bgColor = (index < 4) ? "table-primary" : "table-danger";
         $(".points-table tbody").append("<tr class='" + bgColor + "'>" +
             "<th scope='col' class='text-center'>" + (index + 1) + "</th>" +
-            "<td><img src='images/teams-logo/" + teamsSortedOrder[index] + ".png' alt='" + teamsSortedOrder[index] + "' height='24'></img> " +
-            teams[teamsSortedOrder[index]] + " (" + teamsSortedOrder[index] + ")" + "</td>" +
+            "<td><img src='images/teams-logo/" + teamsSortedOrder[index] + ".png' alt='" + teamsSortedOrder[index] + "' height='24'> " +
+            teams[teamsSortedOrder[index]] + " (" + teamsSortedOrder[index] + ")" +
+            ((index < 4) ? " <img src='images/qualified.png' alt='qualified' height='16'>" : "") + "</td>" +
             "<td>" + pointsTable[teamsSortedOrder[index]]["matches"] + "</td>" +
             "<td>" + pointsTable[teamsSortedOrder[index]]["won"] + "</td>" +
             "<td>" + pointsTable[teamsSortedOrder[index]]["lost"] + "</td>" +
@@ -204,6 +206,7 @@ function displayPointsTable() {
         );
     }
 
+    $(".points-table").removeClass("hide");
     displayPlayoffs(teamsSortedOrder[0], teamsSortedOrder[1], teamsSortedOrder[2], teamsSortedOrder[3]);
 }
 
@@ -212,71 +215,71 @@ function displayPlayoffs(firstTeam, secondTeam, thirdTeam, fourthTeam) {
     var qualifier1Result = matchResult(firstTeam, secondTeam);
     var qualifier1Winner = qualifier1Result.winnerTeam;
     var qualifier1Loser = qualifier1Result.loserTeam;
-    $(".playoff-table .firstTeam").html("<img src='images/teams-logo/" + firstTeam + ".png' alt='" + firstTeam + "' height='24'></img> " +
+    $(".playoff-table .firstTeam").html("<img src='images/teams-logo/" + firstTeam + ".png' alt='" + firstTeam + "' height='24'> " +
         firstTeam + " " + qualifier1Result[firstTeam]["battingRunScored"] + " / " + qualifier1Result[firstTeam]["battingWicketLost"] + " (" +
         Math.floor(qualifier1Result[firstTeam]["battingBallPlayed"] / 6) + "." + (qualifier1Result[firstTeam]["battingBallPlayed"] % 6) + ")" +
-        ((firstTeam === qualifier1Result["tossWinner"]) ? " <img src='images/coin.png' alt='TossWinner' height='16'></img>" : "")
-    );
-    $(".playoff-table .secondTeam").html("<img src='images/teams-logo/" + secondTeam + ".png' alt='" + secondTeam + "' height='24'></img> " +
+        ((firstTeam === qualifier1Result["tossWinner"]) ? " <img src='images/coin.png' alt='TossWinner' height='16'>" : "")
+    ).css("color", (firstTeam === qualifier1Result["winnerTeam"]) ? "#006400" : "#8b0000").css("background-color", teamsColor[firstTeam]);
+    $(".playoff-table .secondTeam").html("<img src='images/teams-logo/" + secondTeam + ".png' alt='" + secondTeam + "' height='24'> " +
         secondTeam + " " + qualifier1Result[secondTeam]["battingRunScored"] + " / " + qualifier1Result[secondTeam]["battingWicketLost"] + " (" +
         Math.floor(qualifier1Result[secondTeam]["battingBallPlayed"] / 6) + "." + (qualifier1Result[secondTeam]["battingBallPlayed"] % 6) + ")" +
-        ((secondTeam === qualifier1Result["tossWinner"]) ? " <img src='images/coin.png' alt='TossWinner' height='16'></img>" : "")
-    );
+        ((secondTeam === qualifier1Result["tossWinner"]) ? " <img src='images/coin.png' alt='TossWinner' height='16'>" : "")
+    ).css("color", (secondTeam === qualifier1Result["winnerTeam"]) ? "#006400" : "#8b0000").css("background-color", teamsColor[secondTeam]);
     $(".playoff-table .qualifier1Result").html(winStatement(qualifier1Result.firstBattingTeam, qualifier1Result.secondBattingTeam,
-        qualifier1Result.firstBattingRunScored, qualifier1Result.secondBattingRunScored, qualifier1Result.secondBattingWicketLost));
+        qualifier1Result.firstBattingRunScored, qualifier1Result.secondBattingRunScored, qualifier1Result.secondBattingWicketLost, true));
 
     // ELIMINATOR
     var eliminatorResult = matchResult(thirdTeam, fourthTeam);
     var eliminatorWinner = eliminatorResult.winnerTeam;
-    $(".playoff-table .thirdTeam").html("<img src='images/teams-logo/" + thirdTeam + ".png' alt='" + thirdTeam + "' height='24'></img> " +
+    $(".playoff-table .thirdTeam").html("<img src='images/teams-logo/" + thirdTeam + ".png' alt='" + thirdTeam + "' height='24'> " +
         thirdTeam + " " + eliminatorResult[thirdTeam]["battingRunScored"] + " / " + eliminatorResult[thirdTeam]["battingWicketLost"] + " (" +
         Math.floor(eliminatorResult[thirdTeam]["battingBallPlayed"] / 6) + "." + (eliminatorResult[thirdTeam]["battingBallPlayed"] % 6) + ")" +
-        ((thirdTeam === eliminatorResult["tossWinner"]) ? " <img src='images/coin.png' alt='TossWinner' height='16'></img>" : "")
-    );
-    $(".playoff-table .fourthTeam").html("<img src='images/teams-logo/" + fourthTeam + ".png' alt='" + fourthTeam + "' height='24'></img> " +
+        ((thirdTeam === eliminatorResult["tossWinner"]) ? " <img src='images/coin.png' alt='TossWinner' height='16'>" : "")
+    ).css("color", (thirdTeam === eliminatorResult["winnerTeam"]) ? "#006400" : "#8b0000").css("background-color", teamsColor[thirdTeam]);
+    $(".playoff-table .fourthTeam").html("<img src='images/teams-logo/" + fourthTeam + ".png' alt='" + fourthTeam + "' height='24'> " +
         fourthTeam + " " + eliminatorResult[fourthTeam]["battingRunScored"] + " / " + eliminatorResult[fourthTeam]["battingWicketLost"] + " (" +
         Math.floor(eliminatorResult[fourthTeam]["battingBallPlayed"] / 6) + "." + (eliminatorResult[fourthTeam]["battingBallPlayed"] % 6) + ")" +
-        ((fourthTeam === eliminatorResult["tossWinner"]) ? " <img src='images/coin.png' alt='TossWinner' height='16'></img>" : "")
-    );
+        ((fourthTeam === eliminatorResult["tossWinner"]) ? " <img src='images/coin.png' alt='TossWinner' height='16'>" : "")
+    ).css("color", (fourthTeam === eliminatorResult["winnerTeam"]) ? "#006400" : "#8b0000").css("background-color", teamsColor[fourthTeam]);
     $(".playoff-table .eliminatorResult").html(winStatement(eliminatorResult.firstBattingTeam, eliminatorResult.secondBattingTeam,
-        eliminatorResult.firstBattingRunScored, eliminatorResult.secondBattingRunScored, eliminatorResult.secondBattingWicketLost));
+        eliminatorResult.firstBattingRunScored, eliminatorResult.secondBattingRunScored, eliminatorResult.secondBattingWicketLost, true));
 
     // QUALIFIER 2
     var qualifier2Result = matchResult(qualifier1Loser, eliminatorWinner);
     var qualifier2Winner = qualifier2Result.winnerTeam;
-    $(".playoff-table .q2Team1").html("<img src='images/teams-logo/" + qualifier1Loser + ".png' alt='" + qualifier1Loser + "' height='24'></img> " +
+    $(".playoff-table .q2Team1").html("<img src='images/teams-logo/" + qualifier1Loser + ".png' alt='" + qualifier1Loser + "' height='24'> " +
         qualifier1Loser + " " + qualifier2Result[qualifier1Loser]["battingRunScored"] + " / " + qualifier2Result[qualifier1Loser]["battingWicketLost"] + " (" +
         Math.floor(qualifier2Result[qualifier1Loser]["battingBallPlayed"] / 6) + "." + (qualifier2Result[qualifier1Loser]["battingBallPlayed"] % 6) + ")" +
-        ((qualifier1Loser === qualifier2Result["tossWinner"]) ? " <img src='images/coin.png' alt='TossWinner' height='16'></img>" : "")
-    );
-    $(".playoff-table .q2Team2").html("<img src='images/teams-logo/" + eliminatorWinner + ".png' alt='" + eliminatorWinner + "' height='24'></img> " +
+        ((qualifier1Loser === qualifier2Result["tossWinner"]) ? " <img src='images/coin.png' alt='TossWinner' height='16'>" : "")
+    ).css("color", (qualifier1Loser === qualifier2Result["winnerTeam"]) ? "#006400" : "#8b0000").css("background-color", teamsColor[qualifier1Loser]);
+    $(".playoff-table .q2Team2").html("<img src='images/teams-logo/" + eliminatorWinner + ".png' alt='" + eliminatorWinner + "' height='24'> " +
         eliminatorWinner + " " + qualifier2Result[eliminatorWinner]["battingRunScored"] + " / " + qualifier2Result[eliminatorWinner]["battingWicketLost"] + " (" +
         Math.floor(qualifier2Result[eliminatorWinner]["battingBallPlayed"] / 6) + "." + (qualifier2Result[eliminatorWinner]["battingBallPlayed"] % 6) + ")" +
-        ((eliminatorWinner === qualifier2Result["tossWinner"]) ? " <img src='images/coin.png' alt='TossWinner' height='16'></img>" : "")
-    );
+        ((eliminatorWinner === qualifier2Result["tossWinner"]) ? " <img src='images/coin.png' alt='TossWinner' height='16'>" : "")
+    ).css("color", (eliminatorWinner === qualifier2Result["winnerTeam"]) ? "#006400" : "#8b0000").css("background-color", teamsColor[eliminatorWinner]);
     $(".playoff-table .qualifier2Result").html(winStatement(qualifier2Result.firstBattingTeam, qualifier2Result.secondBattingTeam,
-        qualifier2Result.firstBattingRunScored, qualifier2Result.secondBattingRunScored, qualifier2Result.secondBattingWicketLost));
+        qualifier2Result.firstBattingRunScored, qualifier2Result.secondBattingRunScored, qualifier2Result.secondBattingWicketLost, true));
 
     // THE FINAL
     var finalResult = matchResult(qualifier1Winner, qualifier2Winner);
     var finalWinner = finalResult.winnerTeam;
-    $(".playoff-table .finalist1").html("<img src='images/teams-logo/" + qualifier1Winner + ".png' alt='" + qualifier1Winner + "' height='24'></img> " +
+    $(".playoff-table .finalist1").html("<img src='images/teams-logo/" + qualifier1Winner + ".png' alt='" + qualifier1Winner + "' height='24'> " +
         qualifier1Winner + " " + finalResult[qualifier1Winner]["battingRunScored"] + " / " + finalResult[qualifier1Winner]["battingWicketLost"] + " (" +
         Math.floor(finalResult[qualifier1Winner]["battingBallPlayed"] / 6) + "." + (finalResult[qualifier1Winner]["battingBallPlayed"] % 6) + ")" +
-        ((qualifier1Winner === finalResult["tossWinner"]) ? " <img src='images/coin.png' alt='TossWinner' height='16'></img>" : "")
-    );
-    $(".playoff-table .finalist2").html("<img src='images/teams-logo/" + qualifier2Winner + ".png' alt='" + qualifier2Winner + "' height='24'></img> " +
+        ((qualifier1Winner === finalResult["tossWinner"]) ? " <img src='images/coin.png' alt='TossWinner' height='16'>" : "")
+    ).css("color", (qualifier1Winner === finalResult["winnerTeam"]) ? "#006400" : "#8b0000").css("background-color", teamsColor[qualifier1Winner]);
+    $(".playoff-table .finalist2").html("<img src='images/teams-logo/" + qualifier2Winner + ".png' alt='" + qualifier2Winner + "' height='24'> " +
         qualifier2Winner + " " + finalResult[qualifier2Winner]["battingRunScored"] + " / " + finalResult[qualifier2Winner]["battingWicketLost"] + " (" +
         Math.floor(finalResult[qualifier2Winner]["battingBallPlayed"] / 6) + "." + (finalResult[qualifier2Winner]["battingBallPlayed"] % 6) + ")" +
-        ((qualifier2Winner === finalResult["tossWinner"]) ? " <img src='images/coin.png' alt='TossWinner' height='16'></img>" : "")
-    );
+        ((qualifier2Winner === finalResult["tossWinner"]) ? " <img src='images/coin.png' alt='TossWinner' height='16'>" : "")
+    ).css("color", (qualifier2Winner === finalResult["winnerTeam"]) ? "#006400" : "#8b0000").css("background-color", teamsColor[qualifier2Winner]);
     $(".playoff-table .winnerFinal").html(winStatement(finalResult.firstBattingTeam, finalResult.secondBattingTeam,
-        finalResult.firstBattingRunScored, finalResult.secondBattingRunScored, finalResult.secondBattingWicketLost));
+        finalResult.firstBattingRunScored, finalResult.secondBattingRunScored, finalResult.secondBattingWicketLost, true));
 
     $(".playoff-table").removeClass("hide");
 
     // CHAMPION
-    $(".champion-team-logo").html("<img src='images/teams-logo/" + finalWinner + ".png' alt='" + finalWinner + "' height='48'></img>");
+    $(".champion-team-logo").html("<img src='images/teams-logo/" + finalWinner + ".png' alt='" + finalWinner + "' height='48'>");
     $(".champion-text").html(teams[finalWinner].toUpperCase() + " (" + finalWinner + ")");
     $(".champion-container").removeClass("hide");
 }
@@ -284,7 +287,7 @@ function displayPlayoffs(firstTeam, secondTeam, thirdTeam, fourthTeam) {
 function displayGroups() {
     for (const groupATeam in groupA) {
         $(".group-A-table tbody").append("<tr>" +
-            "<td><img src='images/teams-logo/" + groupATeam + ".png' alt='" + groupATeam + "' height='24'></img> " +
+            "<td><img src='images/teams-logo/" + groupATeam + ".png' alt='" + groupATeam + "' height='24'> " +
             teams[groupATeam] + " (" + groupATeam + ")" + "</td>" +
             "</tr>"
         );
@@ -292,7 +295,7 @@ function displayGroups() {
 
     for (const groupBTeam in groupB) {
         $(".group-B-table tbody").append("<tr>" +
-            "<td><img src='images/teams-logo/" + groupBTeam + ".png' alt='" + groupBTeam + "' height='24'></img> " +
+            "<td><img src='images/teams-logo/" + groupBTeam + ".png' alt='" + groupBTeam + "' height='24'> " +
             teams[groupBTeam] + " (" + groupBTeam + ")" + "</td>" +
             "</tr>"
         );
@@ -364,13 +367,23 @@ function matchResult(homeTeam, awayTeam) {
     return resultObject;
 }
 
-function winStatement(firstBattingTeam, secondBattingTeam, firstBattingRunScored, secondBattingRunScored, secondBattingWicketLost) {
-    if (firstBattingRunScored > secondBattingRunScored) {
-        var wonByRun = firstBattingRunScored - secondBattingRunScored;
-        return (teams[firstBattingTeam] + " won by " + wonByRun + ((wonByRun === 1) ? " run" : " runs"));
+function winStatement(firstBattingTeam, secondBattingTeam, firstBattingRunScored, secondBattingRunScored, secondBattingWicketLost, isPlayoff) {
+    if (isPlayoff === true) {
+        if (firstBattingRunScored > secondBattingRunScored) {
+            var wonByRun = firstBattingRunScored - secondBattingRunScored;
+            return (firstBattingTeam + " won by " + wonByRun + ((wonByRun === 1) ? " run" : " runs"));
+        } else {
+            var wonByWicket = 10 - secondBattingWicketLost;
+            return (secondBattingTeam + " won by " + wonByWicket + ((wonByWicket === 1) ? " wicket" : " wickets"));
+        }
     } else {
-        var wonByWicket = 10 - secondBattingWicketLost;
-        return (teams[secondBattingTeam] + " won by " + wonByWicket + ((wonByWicket === 1) ? " wicket" : " wickets"));
+        if (firstBattingRunScored > secondBattingRunScored) {
+            var wonByRun = firstBattingRunScored - secondBattingRunScored;
+            return (teams[firstBattingTeam] + " won by " + wonByRun + ((wonByRun === 1) ? " run" : " runs"));
+        } else {
+            var wonByWicket = 10 - secondBattingWicketLost;
+            return (teams[secondBattingTeam] + " won by " + wonByWicket + ((wonByWicket === 1) ? " wicket" : " wickets"));
+        }
     }
 }
 
@@ -382,7 +395,7 @@ function matchDivAdd(matchNo, firstBattingTeamDetail, secondBattingTeamDetail, w
         "</thead>" +
         "<tbody style='background: linear-gradient(to right, #00ffff 0%, #ffff66 100%); color:#cc8e35;'><tr>" +
         "<td class='text-center' style='" + ((winnerTeam === firstBattingTeam) ? "color:#006400;" : "color:#8b0000;") + "'>" + firstBattingTeamDetail + "</td>" +
-        "<td class='text-center p-0 align-middle'><img src='images/versus.png' alt='vs' height='30'></img></td>" +
+        "<td class='text-center p-0 align-middle'><img src='images/versus.png' alt='vs' height='30'></td>" +
         "<td class='text-center' style='" + ((winnerTeam === secondBattingTeam) ? "color:#006400;" : "color:#8b0000;") + "'>" + secondBattingTeamDetail + "</td>" +
         "</tr></tbody>" +
         "<tfoot style='background: linear-gradient(to bottom, #cc0099 0%, #cc3300 100%); color:#d8bfd8;'>" +
