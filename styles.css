@@ -5,7 +5,8 @@
 }
 
 .font-effect-neon {
-    text-shadow: 0 0 0.1em #fff, 0 0 0.3em #fff, 0 0 0.5em #f0f, 0 0 0.7em #f0f, 0 0 0.9em #f0f;
+    text-shadow: 0 0 0.1em #ff0066, 0 0 0.2em #ff3385, 0 0 0.3em #ff66a3, 0 0 0.4em #ff80b3,
+        0 0 0.5em #ffb3d1, 0 0 0.6em #ffffff;
 }
 
 body {
